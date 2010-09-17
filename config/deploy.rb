@@ -1,6 +1,6 @@
 set :application, "fig_leaf"
 set :repository, 'git://github.com/8thlight/figleaf.git'
-set :user, "root"
+set :user, "eric"
 set :domain, "#{user}@24.12.226.200"
 set :deploy_to, "/var/www/apps/figleaf_weather"
 set :rails_env, "production"
