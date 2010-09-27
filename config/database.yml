@@ -18,8 +18,8 @@ test: &TEST
 production:
   adapter: mysql
   database: fig_leaf_production
-  username: mysql
-  password: mysql8923
+  username: root
+  password: 
   host: localhost
 
 cucumber:
