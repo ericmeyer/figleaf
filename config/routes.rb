@@ -1,6 +1,5 @@
-ActionController::Routing::Routes.draw do |map|
-  map.root :controller => "home"
+Figleaf::Application.routes.draw do
+  root :to => "home#index"
 
-  map.connect ':controller/:action/:id'
-  map.connect ':controller/:action/:id.:format'
+  match ':controller(/:action(/:id(.:format)))'
 end
