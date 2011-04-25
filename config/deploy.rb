@@ -20,8 +20,16 @@ namespace :vlad do
     # run "chown -R www-data:www-data #{deploy_to}/current/"
   end
   
+  remote_task :rvm_trust do
+    run "rvm rvmrc trust #{release_path}"
+  end
+  
+  remote_task :bundle_install do
+    run "bundle install #{$BUNDLE_PATH} --without test"
+  end
+  
   desc "Updates your application server to the latest revision, run the migrate rake task for the the app, then restarts Passenger"
-  remote_task :deploy => [:update, :migrate, :start]
+  remote_task :deploy => [:update, :rvm_trust, :bundle_install, :migrate, :start]
   
 end
 
