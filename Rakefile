@@ -7,5 +7,9 @@ require 'rake'
 Figleaf::Application.load_tasks
 
 
+require 'vlad'
+Vlad.load :scm => :git, :app => "passenger"
+
+
 task :build => [:spec, :cucumber] do
 end

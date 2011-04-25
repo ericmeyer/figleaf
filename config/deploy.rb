@@ -2,7 +2,7 @@ set :application, "figleaf"
 set :repository, 'git://github.com/8thlight/figleaf.git'
 set :user, "rails"
 set :domain, "#{user}@artisan.8thlight.com"
-set :deploy_to, "/var/www/apps/figleaf"
+set :deploy_to, "/home/rails/figleaf"
 set :rails_env, "production"
   
 namespace :vlad do
@@ -21,7 +21,7 @@ namespace :vlad do
   end
   
   desc "Updates your application server to the latest revision, run the migrate rake task for the the app, then restarts Passenger"
-  remote_task :deploy => [:spec, :cucumber, :update, :migrate, :start_app]
+  remote_task :deploy => [:update, :migrate, :start]
   
 end
 
