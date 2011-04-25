@@ -25,7 +25,7 @@ namespace :vlad do
   end
   
   remote_task :bundle_install do
-    run "bundle install #{$BUNDLE_PATH} --without test"
+    run "bundle install --without test"
   end
   
   desc "Updates your application server to the latest revision, run the migrate rake task for the the app, then restarts Passenger"
