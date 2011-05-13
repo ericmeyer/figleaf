@@ -1,13 +1,14 @@
 class SearchController < ApplicationController
   def index
     @cities = CitySearch.find(params[:location])
-    
-    if @cities.empty?
+
+    case @cities.size
+    when 0
       flash[:errors] = "No Matching results were found."
       redirect_to(:controller => :home, :action => :index)
-    elsif @cities.size == 1
+    when 1
       redirect_to(:controller => :weather, :action => :display, :id => @cities.first.id, :city_name => @cities.first.name)
-    elsif
+    else
       flash.now[:errors]= "We found more than one city!"
       @homepage = true
       set_home_page_cities
